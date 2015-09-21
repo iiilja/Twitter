@@ -1,0 +1,19 @@
+<div class="twitter_settings">
+    <form class="form-horizontal form-styler">
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Welcome message hashTag</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" placeholder="Welcome message hashTag" ng-model="settings.welcomeTag">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Feed hashTag</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" placeholder="Feed hashTag" ng-model="settings.feedTag">
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary" ng-click="save()">Save</button>
+        </div>
+    </form>
+</div>

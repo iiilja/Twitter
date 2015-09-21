@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="IceFire:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="IceFire.war">
+      <element id="artifact" artifact-name="IceFire:war exploded" />
+    </root>
+  </artifact>
+</component>

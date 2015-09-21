@@ -1,0 +1,50 @@
+    <!DOCTYPE html>
+<html ng-app="tweetApp">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <title>Tweet App</title>
+
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+        <link href="css/toaster.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet" />
+
+        <script src="js/libs/jquery-2.1.1.js"></script>
+
+
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.6/angular.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.6/angular-resource.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.6/angular-route.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.6/angular-animate.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.6/angular-sanitize.js"></script>
+
+
+
+        <script src="js/libs/ui-bootstrap-tpls-0.11.0.min.js"></script>
+        <script src="js/libs/angular-ui-router.min.js"></script>
+        <script src="js/libs/angular-ui-sortable.js"></script>
+        <script src="js/libs/toaster.js"></script>
+        
+        <script src="js/services.js"></script>
+        <script src="js/app.js"></script>
+       
+
+
+
+
+    </head>
+    <body class="{{$root.bodyClass}}">
+        <div id="main-wrap">
+            <div ui-view="leftMenuView" class="menu-nav"></div>
+
+            <div class="container-fluid main-content">
+                <toaster-container toaster-options="{'time-out': 3000}"></toaster-container>
+                <div ui-view="topView" class="header-nav"></div>
+                <div ui-view="contentView"></div>
+            </div>
+        </div>
+
+        <footer ui-view="footerView" id="footer"></footer>
+
+    </body>
+</html>

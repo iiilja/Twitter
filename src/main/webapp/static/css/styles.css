@@ -1,0 +1,202 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&subset=latin,cyrillic-ext);
+@import "jquery.formstyler.css";
+@import "jquery.mCustomScrollbar.css";
+
+html {height: 100%;}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    height: 100%;
+    background: #282828;
+    min-width: 1200px;
+}
+
+#main-wrap {
+    min-height: 100%;
+    padding-bottom: 57px;
+    width: 90%;
+    max-width: 1170px;
+    margin: auto;
+    position: relative;
+}
+
+h1,h2,h3,h4,h5,h6,p,a,div {font-family: 'Open Sans', sans-serif;}
+
+.modal-footer {border-top: 0px; }
+
+.btn {outline: 0!important;}
+
+
+#footer {
+    height: 57px;
+    line-height: 57px;
+    text-align: center;
+    width: 90%;
+    max-width: 1170px;
+    margin: auto;
+    background: #272727;
+    margin-top: -57px;
+    color: #fff;
+    font-size: 10pt;
+    position: relative;
+}
+
+
+.menu-nav {
+    display: none;
+    width: 250px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #222;
+    overflow-y:auto;
+}
+
+.content_bg .menu-nav {display: block;}
+
+.content_bg .main-content {
+    width: auto;
+    margin-left: 250px;
+    padding: 58px 0 20px 0;
+    position: relative;
+}
+
+.content_bg .header-nav {
+  height: 58px;
+  width: 100%;
+  line-height: 58px;
+  background: #272727;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.content_bg #main-wrap {
+    background: #f6f6f6;
+}
+
+/* menu-nav-list*/
+
+.menu-nav-list {
+    padding: 0;
+    margin: 100px 0 0 0;
+    list-style: none;
+}
+
+
+.menu-nav-list li a{
+    color: #c4c4c4;
+    display: block;
+    padding-left: 15px;
+    line-height: 50px;
+    text-decoration: none;
+    -webkit-transition:0.3s all ease;
+    -moz-transition:0.3s all ease;
+    transition:0.3s all ease;
+    background: transparent;
+    position: relative;
+}
+.menu-nav-list li a:after ,
+.setting-block li a:after {
+    left: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(246, 246, 246, 0);
+    border-right-color: #f6f6f6;
+    border-width: 10px;
+    margin-top: -10px;
+    margin-left: -20px;
+    opacity: 0;
+    filter:alpha(opacity=0);
+}
+
+.menu-nav-list li a:hover {
+    background: #282c2e;
+    text-decoration: none;
+    color: #fff;
+}
+
+.menu-nav-list li a.active {
+    background: #383c3e;
+    color: #fff;
+}
+
+.menu-nav-list li a.active:after ,
+
+
+/* form-styler*/
+.form-styler {
+    max-width: 510px;
+}
+
+.form-styler label {
+    font-weight: normal;
+    text-align: right;
+    padding-right: 0;
+}
+
+.form-styler button[type="submit"] {
+    padding-left: 58px;
+    padding-right: 58px;
+    margin-left: 19px;
+    margin-top: 5px;
+}
+
+
+.form-control {height: 38px;}
+
+.form-control.device-groups {
+    height: 34px;
+    display: initial;
+}
+.form-group {margin-bottom: 22px;}
+
+
+.twitter_button{
+    margin: auto;
+    display: block;
+    max-width: 500px;
+}
+
+.twitter_welcome{
+    margin: 50px;
+}
+.twitter_statuses{
+    margin-left: 15px;
+}
+.twitter_settings{
+    margin: 15px;
+}
+
+/*twitter*/
+blockquote.twitter-tweet {
+    display: inline-block;
+    padding: 16px;
+    margin: 10px 0;
+    max-width: 468px;
+    border: #ddd 1px solid;
+    border-top-color: #eee;
+    border-bottom-color: #bbb;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+    font: bold 14px/18px Helvetica, Arial, sans-serif;
+    color: #000;
+}
+
+blockquote.twitter-tweet p {
+    font: normal 18px/24px Georgia, "Times New Roman", Palatino, serif;
+    margin: 0 5px 10px 0;
+}
+
+blockquote.twitter-tweet a[href^="https://twitter.com"] {
+    font-weight: normal;
+    color: #666;
+    font-size: 12px;
+}
+
