@@ -97,8 +97,7 @@ h1,h2,h3,h4,h5,h6,p,a,div {font-family: 'Open Sans', sans-serif;}
     background: transparent;
     position: relative;
 }
-.menu-nav-list li a:after ,
-.setting-block li a:after {
+.menu-nav-list li a:after{
     left: 100%;
     top: 50%;
     border: solid transparent;
@@ -176,10 +175,10 @@ h1,h2,h3,h4,h5,h6,p,a,div {font-family: 'Open Sans', sans-serif;}
 
 /*twitter*/
 blockquote.twitter-tweet {
-    display: inline-block;
+    margin: auto;
+    display: block;
+    max-width: 500px;
     padding: 16px;
-    margin: 10px 0;
-    max-width: 468px;
     border: #ddd 1px solid;
     border-top-color: #eee;
     border-bottom-color: #bbb;
@@ -187,6 +186,7 @@ blockquote.twitter-tweet {
     box-shadow: 0 1px 3px rgba(0,0,0,0.15);
     font: bold 14px/18px Helvetica, Arial, sans-serif;
     color: #000;
+    background-color: white;
 }
 
 blockquote.twitter-tweet p {

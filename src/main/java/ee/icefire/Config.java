@@ -17,6 +17,12 @@ public class Config {
     @Value("${hashtagWelcomeMessage}")
     private String hashTagWelcomeMessage;
 
+    @Value("${twitterApp.customerKey}")
+    private String customerKey;
+
+    @Value("${twitterApp.customerSecret}")
+    private String customerSecret;
+
 
     public String getHashTagNewsFeed() {
         return hashTagNewsFeed;
@@ -32,5 +38,21 @@ public class Config {
 
     public void setHashTagWelcomeMessage(String hashTagWelcomeMessage) {
         this.hashTagWelcomeMessage = hashTagWelcomeMessage;
+    }
+
+    public String getCustomerKey() {
+        return customerKey;
+    }
+
+    public void setCustomerKey(String customerKey) {
+        this.customerKey = customerKey;
+    }
+
+    public String getCustomerSecret() {
+        return customerSecret;
+    }
+
+    public void setCustomerSecret(String customerSecret) {
+        this.customerSecret = customerSecret;
     }
 }

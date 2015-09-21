@@ -20,6 +20,7 @@ import twitter4j.*;
 import twitter4j.auth.OAuth2Token;
 import twitter4j.conf.ConfigurationBuilder;
 
+import javax.annotation.PostConstruct;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -27,14 +28,15 @@ import java.util.Date;
 import java.util.List;
 
 @Controller
-public class HelloController {
+public class TwitterController {
+
+//	@Autowired
+	private Config config;
 
 	// My twitter application data
-	private static final String TWITTER_CUSTOMER_KEY = "GkYiipGxl4rvRGRGak2z9DliB";
-	private static final String TWITTER_CUSTOMER_SECRET = "RNkIDzzjO9gIswdzniCxxrvaSdFdwxqUGA1uibklW4Bn2Ip5Gj";
+	private final String TWITTER_CUSTOMER_KEY;
+	private final String TWITTER_CUSTOMER_SECRET;
 
-	@Autowired
-	private Config config;
 
 	private Twitter twitter;
 
@@ -46,7 +48,13 @@ public class HelloController {
 	private String lastTimeUpdated = "not updated";
 	private DateFormat df = new SimpleDateFormat("yyyy.MM.dd 'at' HH:mm:ss");
 
-	public HelloController(){
+	@Autowired
+	public TwitterController(Config config){
+		TWITTER_CUSTOMER_KEY = config.getCustomerKey();
+		TWITTER_CUSTOMER_SECRET = config.getCustomerSecret();
+		System.out.println(TWITTER_CUSTOMER_KEY);
+		System.out.println(TWITTER_CUSTOMER_SECRET);
+		this.config = config;
 		init();
 	}
 
@@ -55,6 +63,7 @@ public class HelloController {
 	 * Configuring Twitter and authentication
 	 */
 	private void init() {
+		System.out.println("Init");
 		ConfigurationBuilder cb = new ConfigurationBuilder();
 		cb.setDebugEnabled(true)
 				.setApplicationOnlyAuthEnabled(true);
@@ -146,7 +155,7 @@ public class HelloController {
 	 * Notice : max 180 twitter search request per 15 min
 	 * This method does 1(feed)*pages + 1(welcome) requests
 	 */
-	@Scheduled(fixedDelay=60000)
+	@Scheduled(fixedDelay=3*60000)
 	private void fetchLastTweets() {
 		System.out.println("Fetching tweets from twitter");
 
@@ -160,6 +169,7 @@ public class HelloController {
 		List<Tweet> tweets = new ArrayList<Tweet>();
 		try {
 			// Might be over 1 page of results, so using do while
+			int pageCounter = 0;
 			do {
 				queryResult = twitter.search(query);
 				for (Status status : queryResult.getTweets()) {
@@ -169,8 +179,9 @@ public class HelloController {
 					Tweet tweet = new Tweet(status.getId(), oEmbed.getHtml());
 					tweets.add(tweet);
 					query = queryResult.nextQuery();
+					pageCounter ++;
 				}
-			} while (queryResult.hasNext() );
+			} while ( queryResult.hasNext() && pageCounter < 5);
 
 			lastTimeUpdated = df.format(new Date());
 			this.tweets = tweets;
@@ -178,10 +189,12 @@ public class HelloController {
 			queryResult = twitter.search(welcomeQuery);
 			Status status = queryResult.getTweets().get(0);
 			welcomeMessage = new WelcomeMessage(status.getText(), status.getUser().getName());
+			System.out.println("Got " + tweets.size() + " tweets");
 
 		} catch (TwitterException e) {
 			//TODO: notice client about exception
 			// try init once more
+			System.err.println(e.getMessage());
 			init();
 		}
 		System.out.println("Fetch finished");
